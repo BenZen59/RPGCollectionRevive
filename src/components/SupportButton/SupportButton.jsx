@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SupportBoutton({ SupportId }) {
+export default function SupportButton({ SupportId }) {
   const supports = [
     {
       id: 1,

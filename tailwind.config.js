@@ -6,7 +6,11 @@ module.exports = {
       width: {
         128: '32rem',
       },
+      fontFamily: {
+        candara: ['Candara', 'sans-serif'],
+      },
     },
   },
+  variants: {},
   plugins: [],
 };
