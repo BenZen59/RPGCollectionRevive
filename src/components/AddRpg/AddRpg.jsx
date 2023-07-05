@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import SupportButton from '../SupportButton/SupportButton';
+import SupportButton from '../Button/SupportButton';
+import GenreButton from '../Button/GenreButton';
 import Select from 'react-select';
 
 export default function AddRpg() {
@@ -87,6 +88,65 @@ export default function AddRpg() {
     },
   ];
 
+  const genres = [
+    {
+      value: '? RPG',
+      label: <GenreButton GenreId={1} />,
+    },
+    {
+      value: 'ADV',
+      label: <GenreButton GenreId={2} />,
+    },
+    {
+      value: 'A-RPG',
+      label: <GenreButton GenreId={3} />,
+    },
+    {
+      value: 'CARD',
+      label: <GenreButton GenreId={4} />,
+    },
+    {
+      value: 'C-RPG',
+      label: <GenreButton GenreId={5} />,
+    },
+    {
+      value: 'D-RPG',
+      label: <GenreButton GenreId={6} />,
+    },
+    {
+      value: 'H-RPG',
+      label: <GenreButton GenreId={7} />,
+    },
+    {
+      value: 'H-SLG',
+      label: <GenreButton GenreId={8} />,
+    },
+    {
+      value: 'MMO',
+      label: <GenreButton GenreId={9} />,
+    },
+    {
+      value: 'ROGUE',
+      label: <GenreButton GenreId={10} />,
+    },
+    {
+      value: 'SHOOT',
+      label: <GenreButton GenreId={11} />,
+    },
+    {
+      value: 'SIM',
+      label: <GenreButton GenreId={12} />,
+    },
+    {
+      value: 'S-RPG',
+      label: <GenreButton GenreId={13} />,
+    },
+    {
+      value: 'T-RPG',
+      label: <GenreButton GenreId={14} />,
+    },
+  ];
+
   const handleChange1 = (e) => {
     const { name, value } = e.target;
     setRpgData((prevData) => ({
@@ -99,6 +159,13 @@ export default function AddRpg() {
     setRpgData((prevData) => ({
       ...prevData,
       support: selectedOption.value,
+    }));
+  };
+
+  const handleChange3 = (selectedOption) => {
+    setRpgData((prevData) => ({
+      ...prevData,
+      genre: selectedOption.value,
     }));
   };
 
@@ -120,7 +187,7 @@ export default function AddRpg() {
   };
 
   return (
-    <div className='w-[412px] h-[570px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
+    <div className='w-[412px] h-[590px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
       <h3 className='text-4xl text-center mt-6 mb-6'>
         Ajouter un RPG à la BDD
       </h3>
@@ -150,21 +217,16 @@ export default function AddRpg() {
             onChange={handleChange2}
             className='border border-gray-600 border-solid rounded font-sans'
           />
-
-          <div className=''>
-            <label htmlFor='genre' className='font-bold'>
-              Genre
-            </label>
-            <br />
-            <input
-              type='text'
-              id='genre'
-              name='genre'
-              value={rpgData.genre}
-              onChange={handleChange1}
-              className='border border-gray-600 border-solid rounded px-2 py-1 '
-            />
-          </div>
+          <label className='font-bold'>Genre</label>
+          <br />
+          <Select
+            options={genres}
+            id='genre'
+            name='genre'
+            value={genres.find((option) => option.value === rpgData.genre)}
+            onChange={handleChange3}
+            className='border border-gray-600 border-solid rounded font-sans'
+          />
           <div className=''>
             <label htmlFor='developpeur' className='font-bold'>
               Développeur
