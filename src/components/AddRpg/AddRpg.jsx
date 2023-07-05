@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import SupportButton from '../SupportButton/SupportButton';
+import Select from 'react-select';
 
 export default function AddRpg() {
   const [rpgData, setRpgData] = useState({
@@ -10,11 +12,93 @@ export default function AddRpg() {
     imagerpg: '',
   });
 
-  const handleChange = (e) => {
+  const supports = [
+    {
+      value: 'GB',
+      label: <SupportButton SupportId={1} />,
+    },
+    {
+      value: 'GBA',
+      label: <SupportButton SupportId={2} />,
+    },
+    {
+      value: 'GBC',
+      label: <SupportButton SupportId={3} />,
+    },
+    {
+      value: 'GC',
+      label: <SupportButton SupportId={4} />,
+    },
+    {
+      value: 'NES',
+      label: <SupportButton SupportId={5} />,
+    },
+    {
+      value: '3DS',
+      label: <SupportButton SupportId={6} />,
+    },
+    {
+      value: 'DS',
+      label: <SupportButton SupportId={7} />,
+    },
+    {
+      value: 'Switch',
+      label: <SupportButton SupportId={8} />,
+    },
+    {
+      value: 'PC',
+      label: <SupportButton SupportId={9} />,
+    },
+    {
+      value: 'PC98',
+      label: <SupportButton SupportId={10} />,
+    },
+    {
+      value: 'PS1',
+      label: <SupportButton SupportId={11} />,
+    },
+    {
+      value: 'PS2',
+      label: <SupportButton SupportId={12} />,
+    },
+    {
+      value: 'PS3',
+      label: <SupportButton SupportId={13} />,
+    },
+    {
+      value: 'PS4',
+      label: <SupportButton SupportId={14} />,
+    },
+    {
+      value: 'PS5',
+      label: <SupportButton SupportId={15} />,
+    },
+    {
+      value: 'PSP',
+      label: <SupportButton SupportId={16} />,
+    },
+    {
+      value: 'SNES',
+      label: <SupportButton SupportId={17} />,
+    },
+    {
+      value: 'Wii',
+      label: <SupportButton SupportId={18} />,
+    },
+  ];
+
+  const handleChange1 = (e) => {
     const { name, value } = e.target;
     setRpgData((prevData) => ({
       ...prevData,
       [name]: value,
+    }));
+  };
+
+  const handleChange2 = (selectedOption) => {
+    setRpgData((prevData) => ({
+      ...prevData,
+      support: selectedOption.value,
     }));
   };
 
@@ -36,7 +120,7 @@ export default function AddRpg() {
   };
 
   return (
-    <div className='w-[412px] h-[550px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
+    <div className='w-[412px] h-[570px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
       <h3 className='text-4xl text-center mt-6 mb-6'>
         Ajouter un RPG à la BDD
       </h3>
@@ -52,24 +136,21 @@ export default function AddRpg() {
               id='name'
               name='name'
               value={rpgData.name}
-              onChange={handleChange}
+              onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1 '
             />
           </div>
-          <div className=''>
-            <label htmlFor='plateforme' className='font-bold'>
-              Plate-forme
-            </label>
-            <br />
-            <input
-              type='text'
-              id='support'
-              name='support'
-              value={rpgData.support}
-              onChange={handleChange}
-              className='border border-gray-600 border-solid rounded px-2 py-1 '
-            />
-          </div>
+          <label className='font-bold'>Plate-forme</label>
+          <br />
+          <Select
+            options={supports}
+            id='support'
+            name='support'
+            value={supports.find((option) => option.value === rpgData.support)}
+            onChange={handleChange2}
+            className='border border-gray-600 border-solid rounded font-sans'
+          />
+
           <div className=''>
             <label htmlFor='genre' className='font-bold'>
               Genre
@@ -80,7 +161,7 @@ export default function AddRpg() {
               id='genre'
               name='genre'
               value={rpgData.genre}
-              onChange={handleChange}
+              onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1 '
             />
           </div>
@@ -94,7 +175,7 @@ export default function AddRpg() {
               id='developer'
               name='developer'
               value={rpgData.developer}
-              onChange={handleChange}
+              onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1'
             />
           </div>
@@ -109,7 +190,7 @@ export default function AddRpg() {
               id='imagerpg'
               name='imagerpg'
               value={rpgData.image}
-              onChange={handleChange}
+              onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1'
             />
             {rpgData.imagerpg && (
