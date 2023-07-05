@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ImageUploader from '../ImageUploader/ImageUploder';
 import axios from 'axios';
 
 export default function AddRpg() {
@@ -8,6 +7,7 @@ export default function AddRpg() {
     support: '',
     genre: '',
     developer: '',
+    imagerpg: '',
   });
 
   const handleChange = (e) => {
@@ -36,11 +36,11 @@ export default function AddRpg() {
   };
 
   return (
-    <div className='w-[612px] h-[410px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
+    <div className='w-[412px] h-[550px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
       <h3 className='text-4xl text-center mt-6 mb-6'>
         Ajouter un RPG à la BDD
       </h3>
-      <div className='flex ml-8'>
+      <div className='flex ml-24'>
         <form onSubmit={handleSubmit}>
           <div className=''>
             <label htmlFor='nom' className='font-bold'>
@@ -98,6 +98,28 @@ export default function AddRpg() {
               className='border border-gray-600 border-solid rounded px-2 py-1'
             />
           </div>
+
+          <div className=''>
+            <label htmlFor='image' className='font-bold'>
+              Image RPG
+            </label>
+            <br />
+            <input
+              type='text'
+              id='imagerpg'
+              name='imagerpg'
+              value={rpgData.image}
+              onChange={handleChange}
+              className='border border-gray-600 border-solid rounded px-2 py-1'
+            />
+            {rpgData.imagerpg && (
+              <img
+                src={rpgData.imagerpg}
+                alt='imagerpg'
+                className='w-16 h-16 border border-gray-600 border-solid mt-4'
+              />
+            )}
+          </div>
           <br />
           <button
             type='submit'
@@ -106,7 +128,6 @@ export default function AddRpg() {
             Enregistrer
           </button>
         </form>
-        <ImageUploader />
       </div>
     </div>
   );
