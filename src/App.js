@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ListRPG from './components/ListRPG/ListRPG';
 import AddRpg from './components/AddRpg/AddRpg';
+import UpdateRpg from './components/UpdateRpg/UpdateRpg';
 import SupportButton from './components/Button/SupportButton';
 import GenreButton from './components/Button/GenreButton';
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/' element={<ListRPG />} />
           <Route path='/getrpg' element={<ListRPG />} />
           <Route path='/addrpg' element={<AddRpg />} />
+          <Route path='/updaterpg' element={<UpdateRpg />} />
         </Routes>
       </BrowserRouter>
     </div>
