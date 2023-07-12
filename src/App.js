@@ -31,7 +31,7 @@ function App() {
           <SupportButton SupportId={17} />
           <SupportButton SupportId={18} />
         </div>
-        <div className='flex'>
+        <div className='flex mb-8'>
           <GenreButton GenreId={1} />
           <GenreButton GenreId={2} />
           <GenreButton GenreId={3} />
@@ -51,7 +51,7 @@ function App() {
           <Route path='/' element={<ListRPG />} />
           <Route path='/getrpg' element={<ListRPG />} />
           <Route path='/addrpg' element={<AddRpg />} />
-          <Route path='/updaterpg' element={<UpdateRpg />} />
+          <Route path='/updaterpg/:id' element={<UpdateRpg />} />
         </Routes>
       </BrowserRouter>
     </div>
