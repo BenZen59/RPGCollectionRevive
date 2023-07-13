@@ -7,14 +7,14 @@ import Select from 'react-select';
 
 export default function UpdateRpg() {
   const location = useLocation();
-  const { name, support, genre, developer } = location.state;
+  const { name, support, genre, developer, imagerpg } = location.state;
   console.log(location.state);
   const [rpgData, setRpgData] = useState({
     name: name,
     support: support,
     genre: genre,
     developer: developer,
-    imagerpg: '',
+    imagerpg: imagerpg,
   });
 
   const { id } = useParams();
@@ -258,7 +258,7 @@ export default function UpdateRpg() {
               type='text'
               id='imagerpg'
               name='imagerpg'
-              value={rpgData.image}
+              value={rpgData.imagerpg}
               onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1'
             />

@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import ListRPG from './components/ListRPG/ListRPG';
 import AddRpg from './components/AddRpg/AddRpg';
 import UpdateRpg from './components/UpdateRpg/UpdateRpg';
+import DetailsRPG from './components/DetailsRpg/DetailsRpg';
 import SupportButton from './components/Button/SupportButton';
 import GenreButton from './components/Button/GenreButton';
 
@@ -52,6 +53,7 @@ function App() {
           <Route path='/getrpg' element={<ListRPG />} />
           <Route path='/addrpg' element={<AddRpg />} />
           <Route path='/updaterpg/:id' element={<UpdateRpg />} />
+          <Route path='/detailsrpg/:id' element={<DetailsRPG />} />
         </Routes>
       </BrowserRouter>
     </div>

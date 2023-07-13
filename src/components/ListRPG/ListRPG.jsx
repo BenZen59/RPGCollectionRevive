@@ -152,56 +152,107 @@ export default function ListRPG() {
       label: <GenreButton GenreId={14} />,
     },
   ];
-  const HandleUpdate = (id, name, support, genre, developer) => {
+
+  const defineSupport = (support) => {
+    switch (support) {
+      case 'GB':
+        return 1;
+      case 'GBA':
+        return 2;
+      case 'GBC':
+        return 3;
+      case 'GC':
+        return 4;
+      case 'NES':
+        return 5;
+      case '3DS':
+        return 6;
+      case 'DS':
+        return 7;
+      case 'Switch':
+        return 8;
+      case 'PC':
+        return 9;
+      case 'PC98':
+        return 10;
+      case 'PS1':
+        return 11;
+      case 'PS2':
+        return 12;
+      case 'PS3':
+        return 13;
+      case 'PS4':
+        return 14;
+      case 'PS5':
+        return 15;
+      case 'PSP':
+        return 16;
+      case 'SNES':
+        return 17;
+      case 'Wii':
+        return 18;
+      default:
+        return null; // Retourne null si la valeur n'est pas trouvée
+    }
+  };
+
+  const defineGenre = (genre) => {
+    switch (genre) {
+      case '? RPG':
+        return 1;
+      case 'ADV':
+        return 2;
+      case 'A-RPG':
+        return 3;
+      case 'CARD':
+        return 4;
+      case 'C-RPG':
+        return 5;
+      case 'D-RPG':
+        return 6;
+      case 'H-RPG':
+        return 7;
+      case 'H-SLG':
+        return 8;
+      case 'MMO':
+        return 9;
+      case 'ROGUE':
+        return 10;
+      case 'SHOOT':
+        return 11;
+      case 'SIM':
+        return 12;
+      case 'S-RPG':
+        return 13;
+      case 'T-RPG':
+        return 14;
+      default:
+        return null; // Retourne null si la valeur n'est pas trouvée
+    }
+  };
+
+  const HandleUpdate = (id, name, support, genre, developer, imagerpg) => {
     navigate(`/updaterpg/${id}`, {
       state: {
         name: name,
         support: support,
         genre: genre,
         developer: developer,
+        imagerpg: imagerpg,
       },
     });
   };
 
-  const DropdownIndicator = (props) => {
-    return (
-      components.DropdownIndicator && (
-        <components.DropdownIndicator {...props}>
-          {/* Render your custom button component */}
-          <SupportButton SupportId={props.selectProps.value.SupportId} />
-          {/* Add a class to target the separator */}
-          <span className='custom-select__indicator-separator bg-white'></span>
-        </components.DropdownIndicator>
-      )
-    );
-  };
-
-  const CustomSelect = (props) => {
-    return (
-      <Select
-        {...props}
-        components={{ ...props.components, DropdownIndicator }}
-        isSearchable={false} // Disable search functionality
-        menuIsOpen={false} // Close the menu by default
-        classNamePrefix='custom-select' // Add a custom class prefix
-        className='custom-select-container' // Add a custom class for the select container
-        styles={{
-          control: (provided) => ({
-            ...provided,
-            border: 'none', // Remove the border
-            boxShadow: 'none', // Remove the box shadow
-            width: '96%', // Occupy the full width
-            overflowX: 'hidden', // Hide horizontal overflow
-            marginLeft: '6px',
-          }),
-          option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isSelected ? 'lightgray' : 'white', // Set the background color for selected options
-            color: state.isSelected ? 'black' : 'inherit', // Set the text color for selected options
-          }),
-        }}
-      />
-    );
+  const HandleDetails = (id, name, support, genre, developer, imagerpg) => {
+    navigate(`/detailsrpg/${id}`, {
+      state: {
+        name: name,
+        support: support,
+        genre: genre,
+        developer: developer,
+        imagerpg: imagerpg,
+      },
+    });
   };
 
   return (
@@ -216,6 +267,7 @@ export default function ListRPG() {
         <caption className='font-bold text-2xl mb-4'>Liste des RPG</caption>
         <thead className='border-black border border-solid'>
           <tr>
+            <th className='border-t border-l border-white border-solid'></th>
             <th className='border-black border border-solid p-4'>Nom</th>
             <th className='border-black border border-solid p-4'>
               Plate-forme
@@ -225,34 +277,53 @@ export default function ListRPG() {
               Développeur
             </th>
             <th className='border-t border-r border-white border-solid'></th>
+            <th className='border-t border-r border-white border-solid'></th>
           </tr>
         </thead>
         <tbody>
           {dataRPG.map((rpg) => (
             <tr key={rpg.id} className='text-center'>
+              <td className='border-black border border-solid p-2 bg-gray-200'>
+                {rpg.imagerpg && (
+                  <img
+                    src={rpg.imagerpg}
+                    alt='imagerpg'
+                    className='w-32 h-32 border border-gray-600 border-solid rounded '
+                  />
+                )}
+              </td>
               <td className='border-black border border-solid p-4'>
                 {rpg.name}
               </td>
               <td className='border-black border border-solid '>
-                <CustomSelect
-                  options={supports}
-                  id='support'
-                  name='support'
-                  value={supports.find(
-                    (option) => option.value === rpg.support
-                  )}
-                />
+                <button>
+                  <SupportButton SupportId={defineSupport(rpg.support)} />
+                </button>
               </td>
-              <td className='border-black border border-solid'>
-                <CustomSelect
-                  options={genres}
-                  id='genre'
-                  name='genre'
-                  value={genres.find((option) => option.value === rpg.genre)}
-                />
+              <td className='border-black border border-solid '>
+                <button>
+                  <GenreButton GenreId={defineGenre(rpg.genre)} />
+                </button>
               </td>
               <td className='border-black border border-solid p-4'>
                 {rpg.developer}
+              </td>
+              <td className='border-black border border-solid p-4'>
+                <button
+                  className='bg-gray-900 text-white font-bold py-2 px-4 rounded'
+                  onClick={() =>
+                    HandleDetails(
+                      rpg.id,
+                      rpg.name,
+                      rpg.support,
+                      rpg.genre,
+                      rpg.developer,
+                      rpg.imagerpg
+                    )
+                  }
+                >
+                  Details
+                </button>
               </td>
               <td className='border-black border border-solid p-4'>
                 <button
@@ -263,7 +334,8 @@ export default function ListRPG() {
                       rpg.name,
                       rpg.support,
                       rpg.genre,
-                      rpg.developer
+                      rpg.developer,
+                      rpg.imagerpg
                     )
                   }
                 >
