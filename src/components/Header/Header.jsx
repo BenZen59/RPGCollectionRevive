@@ -5,7 +5,7 @@ export default function Header() {
   const [isLogin, setIsLogin] = useState('');
   return (
     <div
-      className='w-full h-16 bg-gradient-to-r from-gray-900 to-black text-white text-5xl text-center font-candara
+      className='w-full h-16 bg-gradient-to-r from-gray-800 to-black text-white text-5xl text-center font-candara
     '
     >
       <div className='flex justify-center pt-1'>

@@ -8,7 +8,6 @@ import Select from 'react-select';
 export default function UpdateRpg() {
   const location = useLocation();
   const { name, support, genre, developer, imagerpg } = location.state;
-  console.log(location.state);
   const [rpgData, setRpgData] = useState({
     name: name,
     support: support,

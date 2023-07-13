@@ -6,6 +6,7 @@ import UpdateRpg from './components/UpdateRpg/UpdateRpg';
 import DetailsRPG from './components/DetailsRpg/DetailsRpg';
 import SupportButton from './components/Button/SupportButton';
 import GenreButton from './components/Button/GenreButton';
+import Test from './components/Test/Test';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path='/addrpg' element={<AddRpg />} />
           <Route path='/updaterpg/:id' element={<UpdateRpg />} />
           <Route path='/detailsrpg/:id' element={<DetailsRPG />} />
+          <Route path='/test' element={<Test />} />
         </Routes>
       </BrowserRouter>
     </div>
