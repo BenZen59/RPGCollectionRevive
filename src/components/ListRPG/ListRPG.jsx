@@ -256,7 +256,7 @@ export default function ListRPG() {
   };
 
   return (
-    <div className='ml-[27%] font-candara'>
+    <div className='ml-[22%] font-candara'>
       <Link
         to='/addrpg'
         className='bg-gray-800 text-white font-bold py-2 px-4 rounded ml-4'
@@ -266,24 +266,24 @@ export default function ListRPG() {
       <h1 className='font-bold text-2xl mb-4 ml-[30%] text-gray-800'>
         Liste des RPG
       </h1>
-      <table className='ml-4 mt-1 mb-8 bg-white border-separate border-spacing-y-4 border border-white text-white shadow-lg'>
+      <table className='ml-4 mt-1 mb-8 bg-white border-separate border-spacing-y-4  border border-white text-white shadow-lg'>
         <thead className='mb-3'>
           <tr className='text-xl'>
             <th className=' border-t border-l border-white border-solid bg-white'></th>
-            <th className='p-4 border rounded order-slate-600 bg-gray-800'>
+            <th className='p-4 border rounded-xl order-slate-600 bg-gray-800'>
               Nom
             </th>
-            <th className='p-4 border rounded bg-gray-800'>Plate-forme</th>
-            <th className='p-4 border rounded bg-gray-800'>Genre</th>
-            <th className='p-4 border rounded bg-gray-800'>Développeur</th>
+            <th className='p-4 border rounded-xl bg-gray-800'>Plate-forme</th>
+            <th className='p-4 border rounded-xl bg-gray-800'>Genre</th>
+            <th className='p-4 border rounded-xl bg-gray-800'>Développeur</th>
             <th className='border-t border-r border-white border-solid bg-white'></th>
             <th className='border-t border-r border-white border-solid bg-white'></th>
           </tr>
         </thead>
-        <tbody className=''>
+        <tbody>
           {dataRPG.map((rpg) => (
             <tr key={rpg.id} className='text-center'>
-              <td className='border-black border-solid p-2 border bg-gray-800 rounded'>
+              <td className='p-2 bg-gray-800 rounded-l-xl'>
                 {rpg.imagerpg && (
                   <img
                     src={rpg.imagerpg}
@@ -292,23 +292,23 @@ export default function ListRPG() {
                   />
                 )}
               </td>
-              <td className='p-4 text-2xl font-bold border  bg-gray-800'>
+              <td className='p-4 text-2xl font-bold border border-solid border-gray-800 bg-gray-800'>
                 {rpg.name}
               </td>
-              <td className='border rounded bg-gray-800'>
+              <td className=' bg-gray-800 border border-solid border-gray-800'>
                 <button className='font-sans'>
                   <SupportButton SupportId={defineSupport(rpg.support)} />
                 </button>
               </td>
-              <td className='border rounded bg-gray-800'>
+              <td className=' bg-gray-800 border border-solid border-gray-800'>
                 <button className='font-sans'>
                   <GenreButton GenreId={defineGenre(rpg.genre)} />
                 </button>
               </td>
-              <td className='text-xl p-4 border rounded bg-gray-800'>
+              <td className='text-xl p-4  bg-gray-800 border border-solid border-gray-800'>
                 {rpg.developer}
               </td>
-              <td className='p-4 border rounded bg-gray-800'>
+              <td className='p-4  bg-gray-800 border border-solid border-gray-800'>
                 <button
                   className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
                   onClick={() =>
@@ -325,7 +325,7 @@ export default function ListRPG() {
                   Details
                 </button>
               </td>
-              <td className='p-4 border rounded bg-gray-800'>
+              <td className='p-4  bg-gray-800 border border-solid border-gray-800 rounded-r-xl'>
                 <button
                   className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
                   onClick={() =>

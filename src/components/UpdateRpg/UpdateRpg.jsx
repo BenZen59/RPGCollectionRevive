@@ -195,11 +195,12 @@ export default function UpdateRpg() {
     }
   };
   return (
-    <div className='w-[412px] h-[590px] font-candara shadow-lg border border-black border-solid border-opacity-20 m-5'>
-      <h3 className='text-4xl text-center mt-6 mb-6'>Modifier un RPG</h3>
+    <div className='w-[412px] h-[700px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
+      <h3 className='text-4xl text-center mt-6'>Modifier un RPG</h3>
       <div className='flex ml-24'>
         <form onSubmit={handleSubmit}>
           <div className=''>
+            <br />
             <label htmlFor='nom' className='font-bold'>
               Nom
             </label>
@@ -210,9 +211,10 @@ export default function UpdateRpg() {
               name='name'
               value={rpgData.name}
               onChange={handleChange1}
-              className='border border-gray-600 border-solid rounded px-2 py-1 '
+              className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800 '
             />
           </div>
+          <br />
           <label className='font-bold'>Plate-forme</label>
           <br />
           <Select
@@ -223,6 +225,7 @@ export default function UpdateRpg() {
             onChange={handleChange2}
             className='border border-gray-600 border-solid rounded font-sans'
           />
+          <br />
           <label className='font-bold'>Genre</label>
           <br />
           <Select
@@ -234,6 +237,7 @@ export default function UpdateRpg() {
             className='border border-gray-600 border-solid rounded font-sans'
           />
           <div className=''>
+            <br />
             <label htmlFor='developpeur' className='font-bold'>
               Développeur
             </label>
@@ -244,11 +248,12 @@ export default function UpdateRpg() {
               name='developer'
               value={rpgData.developer}
               onChange={handleChange1}
-              className='border border-gray-600 border-solid rounded px-2 py-1'
+              className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800'
             />
           </div>
 
           <div className=''>
+            <br />
             <label htmlFor='image' className='font-bold'>
               Image RPG
             </label>
@@ -259,7 +264,7 @@ export default function UpdateRpg() {
               name='imagerpg'
               value={rpgData.imagerpg}
               onChange={handleChange1}
-              className='border border-gray-600 border-solid rounded px-2 py-1'
+              className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800'
             />
             {rpgData.imagerpg && (
               <img
@@ -272,7 +277,7 @@ export default function UpdateRpg() {
           <br />
           <button
             type='submit'
-            className='bg-gray-900 text-white font-bold py-2 px-4 rounded'
+            className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
           >
             Enregistrer
           </button>
