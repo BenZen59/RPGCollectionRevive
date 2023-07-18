@@ -3,13 +3,12 @@ import RPGService from '../../services/RPGService';
 import { Link, useNavigate } from 'react-router-dom';
 import SupportButton from '../Button/SupportButton';
 import GenreButton from '../Button/GenreButton';
-import Select, { components } from 'react-select';
-import './Fixcss.css';
+import axios from 'axios';
 
 export default function ListRPG() {
   const [dataRPG, setDataRPG] = useState([]);
   useEffect(() => {
-    RPGService.getRPG()
+    RPGService.getRPGname()
       .then((response) => {
         setDataRPG(response.data);
       })
@@ -18,7 +17,48 @@ export default function ListRPG() {
       });
   }, []);
 
+  const sortName = () => {
+    RPGService.getRPGname()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSupport = () => {
+    RPGService.getRPGsupport()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortGenre = () => {
+    RPGService.getRPGgenre()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortDeveloper = () => {
+    RPGService.getRPGdeveloper()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
   const navigate = useNavigate();
+
   const supports = [
     {
       value: 'GB',
@@ -270,12 +310,26 @@ export default function ListRPG() {
         <thead className='mb-3'>
           <tr className='text-xl'>
             <th className=' border-t border-l border-white border-solid bg-white'></th>
-            <th className='p-4 border rounded-xl order-slate-600 bg-gray-800'>
-              Nom
+            <th className='p-4 border rounded-xl order-slate-600 bg-gray-800 '>
+              <button onClick={sortName} className='hover:underline'>
+                Nom
+              </button>
             </th>
-            <th className='p-4 border rounded-xl bg-gray-800'>Plate-forme</th>
-            <th className='p-4 border rounded-xl bg-gray-800'>Genre</th>
-            <th className='p-4 border rounded-xl bg-gray-800'>Développeur</th>
+            <th className='p-4 border rounded-xl bg-gray-800'>
+              <button onClick={sortSupport} className='hover:underline'>
+                Plate-forme
+              </button>
+            </th>
+            <th className='p-4 border rounded-xl bg-gray-800'>
+              <button onClick={sortGenre} className='hover:underline'>
+                Genre
+              </button>
+            </th>
+            <th className='p-4 border rounded-xl bg-gray-800'>
+              <button onClick={sortDeveloper} className='hover:underline'>
+                Développeur
+              </button>
+            </th>
             <th className='border-t border-r border-white border-solid bg-white'></th>
             <th className='border-t border-r border-white border-solid bg-white'></th>
           </tr>
