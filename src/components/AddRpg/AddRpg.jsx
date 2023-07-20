@@ -86,6 +86,10 @@ export default function AddRpg() {
       value: 'Wii',
       label: <SupportButton SupportId={18} />,
     },
+    {
+      value: 'Wii U',
+      label: <SupportButton SupportId={19} />,
+    },
   ];
 
   const genres = [
@@ -262,7 +266,7 @@ export default function AddRpg() {
               <img
                 src={rpgData.imagerpg}
                 alt='imagerpg'
-                className='w-16 h-16 border border-gray-600 border-solid mt-4'
+                className='w-16 h-16 rounded mt-4'
               />
             )}
           </div>

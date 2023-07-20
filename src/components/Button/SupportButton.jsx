@@ -96,7 +96,7 @@ export default function SupportButton({ SupportId }) {
     {
       id: 19,
       name: 'Wii U',
-      style: 'bg-gray-800 text-teal-500',
+      style: 'bg-gray-700 text-teal-500',
     },
   ];
 

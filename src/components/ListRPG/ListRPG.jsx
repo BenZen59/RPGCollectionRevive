@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import RPGService from '../../services/RPGService';
 import { Link, useNavigate } from 'react-router-dom';
+import { GiBookCover } from 'react-icons/gi';
+import { MdLoupe } from 'react-icons/md';
+import { GrUpdate } from 'react-icons/gr';
+import { BiPlus } from 'react-icons/bi';
+import RPGService from '../../services/RPGService';
 import SupportButton from '../Button/SupportButton';
 import GenreButton from '../Button/GenreButton';
-import axios from 'axios';
 
 export default function ListRPG() {
   const [dataRPG, setDataRPG] = useState([]);
@@ -39,6 +42,336 @@ export default function ListRPG() {
 
   const sortGenre = () => {
     RPGService.getRPGgenre()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortGB = () => {
+    RPGService.getGB()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortGBC = () => {
+    RPGService.getGBC()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortGBA = () => {
+    RPGService.getGBA()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortGC = () => {
+    RPGService.getGC()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortNES = () => {
+    RPGService.getNES()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sort3DS = () => {
+    RPGService.get3DS()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortDS = () => {
+    RPGService.getDS()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSwitch = () => {
+    RPGService.getSwitch()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPC = () => {
+    RPGService.getPC()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPC98 = () => {
+    RPGService.getPC98()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPS1 = () => {
+    RPGService.getPS1()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPS2 = () => {
+    RPGService.getPS2()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPS3 = () => {
+    RPGService.getPS3()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPS4 = () => {
+    RPGService.getPS4()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPS5 = () => {
+    RPGService.getPS5()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortPSP = () => {
+    RPGService.getPSP()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSNES = () => {
+    RPGService.getSNES()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortWii = () => {
+    RPGService.getWii()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortWiiU = () => {
+    RPGService.getWiiU()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortunknowrpg = () => {
+    RPGService.getunknowrpg()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortADV = () => {
+    RPGService.getADV()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortARPG = () => {
+    RPGService.getARPG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortCARD = () => {
+    RPGService.getCARD()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortCRPG = () => {
+    RPGService.getCRPG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortDRPG = () => {
+    RPGService.getDRPG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortHRPG = () => {
+    RPGService.getHRPG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortHSLG = () => {
+    RPGService.getHSLG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortMMO = () => {
+    RPGService.getMMO()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortROGUE = () => {
+    RPGService.getROGUE()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSHOOT = () => {
+    RPGService.getSHOOT()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSIM = () => {
+    RPGService.getSIM()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortSRPG = () => {
+    RPGService.getSRPG()
+      .then((response) => {
+        setDataRPG(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching RPG list:', error);
+      });
+  };
+
+  const sortTRPG = () => {
+    RPGService.getTRPG()
       .then((response) => {
         setDataRPG(response.data);
       })
@@ -131,6 +464,10 @@ export default function ListRPG() {
     {
       value: 'Wii',
       label: <SupportButton SupportId={18} />,
+    },
+    {
+      value: 'Wii U',
+      label: <SupportButton SupportId={19} />,
     },
   ];
 
@@ -231,6 +568,8 @@ export default function ListRPG() {
         return 17;
       case 'Wii':
         return 18;
+      case 'Wii U':
+        return 19;
       default:
         return null; // Retourne null si la valeur n'est pas trouvée
     }
@@ -296,110 +635,226 @@ export default function ListRPG() {
   };
 
   return (
-    <div className='ml-[22%] font-candara'>
-      <Link
-        to='/addrpg'
-        className='bg-gray-800 text-white font-bold py-2 px-4 rounded ml-4'
-      >
-        Ajouter un RPG
-      </Link>
-      <h1 className='font-bold text-2xl mb-4 ml-[30%] text-gray-800'>
-        Liste des RPG
-      </h1>
-      <table className='ml-4 mt-1 mb-8 bg-white border-separate border-spacing-y-4  border border-white text-white shadow-lg'>
-        <thead className='mb-3'>
-          <tr className='text-xl'>
-            <th className=' border-t border-l border-white border-solid bg-white'></th>
-            <th className='p-4 border rounded-xl order-slate-600 bg-gray-800 '>
-              <button onClick={sortName} className='hover:underline'>
-                Nom
-              </button>
-            </th>
-            <th className='p-4 border rounded-xl bg-gray-800'>
-              <button onClick={sortSupport} className='hover:underline'>
-                Plate-forme
-              </button>
-            </th>
-            <th className='p-4 border rounded-xl bg-gray-800'>
-              <button onClick={sortGenre} className='hover:underline'>
-                Genre
-              </button>
-            </th>
-            <th className='p-4 border rounded-xl bg-gray-800'>
-              <button onClick={sortDeveloper} className='hover:underline'>
-                Développeur
-              </button>
-            </th>
-            <th className='border-t border-r border-white border-solid bg-white'></th>
-            <th className='border-t border-r border-white border-solid bg-white'></th>
-          </tr>
-        </thead>
-        <tbody>
-          {dataRPG.map((rpg) => (
-            <tr key={rpg.id} className='text-center'>
-              <td className='p-2 bg-gray-800 rounded-l-xl'>
-                {rpg.imagerpg && (
-                  <img
-                    src={rpg.imagerpg}
-                    alt='imagerpg'
-                    className='w-32 h-32 border border-gray-600 border-solid rounded '
-                  />
-                )}
-              </td>
-              <td className='p-4 text-2xl font-bold border border-solid border-gray-800 bg-gray-800'>
-                {rpg.name}
-              </td>
-              <td className=' bg-gray-800 border border-solid border-gray-800'>
-                <button className='font-sans'>
-                  <SupportButton SupportId={defineSupport(rpg.support)} />
+    <>
+      <div className='flex flex-col items-center mt-8'>
+        <div className='flex bg-gray-800 rounded-t-xl w-auto'>
+          <button onClick={sortGB}>
+            <SupportButton SupportId={1} />
+          </button>
+          <button onClick={sortGBA}>
+            <SupportButton SupportId={2} />
+          </button>
+          <button onClick={sortGBC}>
+            <SupportButton SupportId={3} />
+          </button>
+          <button onClick={sortGC}>
+            <SupportButton SupportId={4} />
+          </button>
+          <button onClick={sortNES}>
+            <SupportButton SupportId={5} />
+          </button>
+          <button onClick={sort3DS}>
+            <SupportButton SupportId={6} />
+          </button>
+          <button onClick={sortDS}>
+            <SupportButton SupportId={7} />
+          </button>
+          <button onClick={sortSwitch}>
+            <SupportButton SupportId={8} />
+          </button>
+          <button onClick={sortPC}>
+            <SupportButton SupportId={9} />
+          </button>
+          <button onClick={sortPC98}>
+            <SupportButton SupportId={10} />
+          </button>
+          <button onClick={sortPS1}>
+            <SupportButton SupportId={11} />
+          </button>
+          <button onClick={sortPS2}>
+            <SupportButton SupportId={12} />
+          </button>
+          <button onClick={sortPS3}>
+            <SupportButton SupportId={13} />
+          </button>
+          <button onClick={sortPS4}>
+            <SupportButton SupportId={14} />
+          </button>
+          <button onClick={sortPS5}>
+            <SupportButton SupportId={15} />
+          </button>
+          <button onClick={sortPSP}>
+            <SupportButton SupportId={16} />
+          </button>
+          <button onClick={sortSNES}>
+            <SupportButton SupportId={17} />
+          </button>
+          <button onClick={sortWii}>
+            <SupportButton SupportId={18} />
+          </button>
+          <button onClick={sortWiiU}>
+            <SupportButton SupportId={19} />
+          </button>
+        </div>
+        <div className='flex mb-8 bg-gray-800 rounded-b-xl'>
+          <button onClick={sortunknowrpg}>
+            <GenreButton GenreId={1} />
+          </button>
+          <button onClick={sortADV}>
+            <GenreButton GenreId={2} />
+          </button>
+          <button onClick={sortARPG}>
+            <GenreButton GenreId={3} />
+          </button>
+          <button onClick={sortCARD}>
+            <GenreButton GenreId={4} />
+          </button>
+          <button onClick={sortCRPG}>
+            <GenreButton GenreId={5} />
+          </button>
+          <button onClick={sortDRPG}>
+            <GenreButton GenreId={6} />
+          </button>
+          <button onClick={sortHRPG}>
+            <GenreButton GenreId={7} />
+          </button>
+          <button onClick={sortHSLG}>
+            <GenreButton GenreId={8} />
+          </button>
+          <button onClick={sortMMO}>
+            <GenreButton GenreId={9} />
+          </button>
+          <button onClick={sortROGUE}>
+            <GenreButton GenreId={10} />
+          </button>
+          <button onClick={sortSHOOT}>
+            <GenreButton GenreId={11} />
+          </button>
+          <button onClick={sortSIM}>
+            <GenreButton GenreId={12} />
+          </button>
+          <button onClick={sortSRPG}>
+            <GenreButton GenreId={13} />
+          </button>
+          <button onClick={sortTRPG}>
+            <GenreButton GenreId={14} />
+          </button>
+        </div>
+      </div>
+      <div className='ml-[14%] font-candara'>
+        <Link
+          to='/addrpg'
+          className='bg-gray-800 text-white font-bold py-2 px-4 rounded ml-4 flex w-[160px]'
+        >
+          <BiPlus className='mt-1 mr-1' />
+          Ajouter un RPG
+        </Link>
+        <h1 className='font-bold text-2xl mb-4 ml-[36%] text-gray-800'>
+          Liste des RPG
+        </h1>
+        <table className='ml-4 mt-1 mb-8 bg-white border-separate border-spacing-y-4  border border-white text-white'>
+          <thead className='mb-3'>
+            <tr className='text-xl'>
+              <th className=' border-t border-l border-white border-solid bg-white'></th>
+              <th className='p-4 border rounded-xl order-slate-600 bg-gray-800 '>
+                <button onClick={sortName} className='hover:underline'>
+                  Nom
                 </button>
-              </td>
-              <td className=' bg-gray-800 border border-solid border-gray-800'>
-                <button className='font-sans'>
-                  <GenreButton GenreId={defineGenre(rpg.genre)} />
+              </th>
+              <th className='p-4 border rounded-xl bg-gray-800'>
+                <button onClick={sortSupport} className='hover:underline'>
+                  Plate-forme
                 </button>
-              </td>
-              <td className='text-xl p-4  bg-gray-800 border border-solid border-gray-800'>
-                {rpg.developer}
-              </td>
-              <td className='p-4  bg-gray-800 border border-solid border-gray-800'>
-                <button
-                  className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
-                  onClick={() =>
-                    HandleDetails(
-                      rpg.id,
-                      rpg.name,
-                      rpg.support,
-                      rpg.genre,
-                      rpg.developer,
-                      rpg.imagerpg
-                    )
-                  }
-                >
-                  Details
+              </th>
+              <th className='p-4 border rounded-xl bg-gray-800'>
+                <button onClick={sortGenre} className='hover:underline'>
+                  Genre
                 </button>
-              </td>
-              <td className='p-4  bg-gray-800 border border-solid border-gray-800 rounded-r-xl'>
-                <button
-                  className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
-                  onClick={() =>
-                    HandleUpdate(
-                      rpg.id,
-                      rpg.name,
-                      rpg.support,
-                      rpg.genre,
-                      rpg.developer,
-                      rpg.imagerpg
-                    )
-                  }
-                >
-                  Update
+              </th>
+              <th className='p-4 border rounded-xl bg-gray-800'>
+                <button onClick={sortDeveloper} className='hover:underline'>
+                  Développeur
                 </button>
-              </td>
+              </th>
+              <th className='border-t border-r border-white border-solid bg-white'></th>
+              <th className='border-t border-r border-white border-solid bg-white'></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {dataRPG.map((rpg) => (
+              <tr key={rpg.id} className='text-center'>
+                <td className='p-2 bg-gray-800 rounded-l-xl'>
+                  {rpg.imagerpg && (
+                    <img
+                      src={rpg.imagerpg}
+                      alt='imagerpg'
+                      className='w-16 h-16 rounded'
+                    />
+                  )}
+                </td>
+                <td className='p-4 text-2xl font-bold border border-solid border-gray-800 bg-gray-800'>
+                  {rpg.name}
+                </td>
+                <td className=' bg-gray-800 border border-solid border-gray-800'>
+                  <button className='font-sans'>
+                    <SupportButton SupportId={defineSupport(rpg.support)} />
+                  </button>
+                </td>
+                <td className=' bg-gray-800 border border-solid border-gray-800'>
+                  <button className='font-sans'>
+                    <GenreButton GenreId={defineGenre(rpg.genre)} />
+                  </button>
+                </td>
+                <td className='text-xl p-4  bg-gray-800 border border-solid border-gray-800'>
+                  {rpg.developer}
+                </td>
+                <td className='p-4  bg-gray-800 border border-solid border-gray-800'>
+                  <button
+                    className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'
+                    onClick={() =>
+                      HandleDetails(
+                        rpg.id,
+                        rpg.name,
+                        rpg.support,
+                        rpg.genre,
+                        rpg.developer,
+                        rpg.imagerpg
+                      )
+                    }
+                  >
+                    <MdLoupe className='mt-1 mr-1' />
+                    Details
+                  </button>
+                </td>
+                <td className='p-4  bg-gray-800 border border-solid border-gray-800 '>
+                  <button
+                    className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'
+                    onClick={() =>
+                      HandleUpdate(
+                        rpg.id,
+                        rpg.name,
+                        rpg.support,
+                        rpg.genre,
+                        rpg.developer,
+                        rpg.imagerpg
+                      )
+                    }
+                  >
+                    <GrUpdate className='mt-1 mr-1' />
+                    Update
+                  </button>
+                </td>
+                <td className='p-4  bg-gray-800 border border-solid border-gray-800 rounded-r-xl'>
+                  <button className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'>
+                    <GiBookCover className='mt-1 mr-1' />
+                    Cover
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
