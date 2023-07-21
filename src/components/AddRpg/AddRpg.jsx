@@ -3,6 +3,7 @@ import axios from 'axios';
 import SupportButton from '../Button/SupportButton';
 import GenreButton from '../Button/GenreButton';
 import Select from 'react-select';
+import { ImFloppyDisk } from 'react-icons/im';
 
 export default function AddRpg() {
   const [rpgData, setRpgData] = useState({
@@ -11,6 +12,7 @@ export default function AddRpg() {
     genre: '',
     developer: '',
     imagerpg: '',
+    boxrpg: '',
   });
 
   const supports = [
@@ -191,7 +193,7 @@ export default function AddRpg() {
   };
 
   return (
-    <div className='w-[412px] h-[700px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
+    <div className='w-[412px] h-[870px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
       <h3 className='text-4xl text-center mt-6 '>Ajouter un RPG à la BDD</h3>
       <div className='flex ml-24'>
         <form onSubmit={handleSubmit}>
@@ -269,12 +271,35 @@ export default function AddRpg() {
                 className='w-16 h-16 rounded mt-4'
               />
             )}
+            <br />
+
+            <label htmlFor='image' className='font-bold'>
+              Boîte du RPG
+            </label>
+            <br />
+            <input
+              type='text'
+              id='boxrpg'
+              name='boxrpg'
+              value={rpgData.image}
+              onChange={handleChange1}
+              className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800'
+            />
+
+            {rpgData.boxrpg && (
+              <img
+                src={rpgData.boxrpg}
+                alt='imagerpg'
+                className='w-16 h-16 rounded mt-4'
+              />
+            )}
           </div>
           <br />
           <button
             type='submit'
-            className='bg-white text-gray-800 font-bold py-2 px-4 rounded'
+            className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'
           >
+            <ImFloppyDisk className='mt-1 mr-1' />
             Enregistrer
           </button>
         </form>

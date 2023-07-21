@@ -14,6 +14,7 @@ export default function UpdateRpg() {
     genre: genre,
     developer: developer,
     imagerpg: imagerpg,
+    boxrpg: '',
   });
 
   const { id } = useParams();
@@ -199,7 +200,7 @@ export default function UpdateRpg() {
     }
   };
   return (
-    <div className='w-[412px] h-[700px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
+    <div className='w-[412px] h-[870px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
       <h3 className='text-4xl text-center mt-6'>Modifier un RPG</h3>
       <div className='flex ml-24'>
         <form onSubmit={handleSubmit}>
@@ -266,13 +267,35 @@ export default function UpdateRpg() {
               type='text'
               id='imagerpg'
               name='imagerpg'
-              value={rpgData.imagerpg}
+              value={rpgData.image}
               onChange={handleChange1}
               className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800'
             />
             {rpgData.imagerpg && (
               <img
                 src={rpgData.imagerpg}
+                alt='imagerpg'
+                className='w-16 h-16 rounded mt-4'
+              />
+            )}
+            <br />
+
+            <label htmlFor='image' className='font-bold'>
+              Boîte du RPG
+            </label>
+            <br />
+            <input
+              type='text'
+              id='boxrpg'
+              name='boxrpg'
+              value={rpgData.image}
+              onChange={handleChange1}
+              className='border border-gray-600 border-solid rounded px-2 py-1 text-gray-800'
+            />
+
+            {rpgData.boxrpg && (
+              <img
+                src={rpgData.boxrpg}
                 alt='imagerpg'
                 className='w-16 h-16 rounded mt-4'
               />

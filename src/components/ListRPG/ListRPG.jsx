@@ -888,7 +888,11 @@ export default function ListRPG() {
                     <div className='fixopacity fixed top-0 left-0 w-full flex items-center justify-center mt-4'>
                       {rpg.boxrpg && (
                         <div className='flex bg-transparent'>
-                          <img src={idCover} alt='coverrpg' />
+                          <img
+                            src={idCover}
+                            alt='coverrpg'
+                            className='rounded'
+                          />
                           <button
                             className='h-10 bg-white text-gray-800 font-bold py-2 px-4 rounded flex ml-2'
                             onClick={() => {
