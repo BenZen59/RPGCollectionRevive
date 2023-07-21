@@ -7,14 +7,14 @@ import Select from 'react-select';
 
 export default function UpdateRpg() {
   const location = useLocation();
-  const { name, support, genre, developer, imagerpg } = location.state;
+  const { name, support, genre, developer, imagerpg, boxrpg } = location.state;
   const [rpgData, setRpgData] = useState({
     name: name,
     support: support,
     genre: genre,
     developer: developer,
     imagerpg: imagerpg,
-    boxrpg: '',
+    boxrpg: boxrpg,
   });
 
   const { id } = useParams();

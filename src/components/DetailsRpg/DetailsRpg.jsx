@@ -224,7 +224,7 @@ export default function DetailsRPG() {
   };
 
   return (
-    <div className='w-[824px] h-[310px] font-candara rounded-xl mt-[10%] mb-5 ml-[30%] bg-gray-800 text-white pt-1 flex'>
+    <div className='w-[824px] h-[310px] font-candara rounded-xl mt-[10%] mb-5 ml-[28%] bg-gray-800 text-white pt-1 flex'>
       <div>
         <h3 className='text-4xl mt-6 ml-4 flex'>
           <img
@@ -251,7 +251,7 @@ export default function DetailsRPG() {
           Développeur : {developer}
         </fieldset>
       </div>
-      <div className='flex ml-[60px] w-[275px]'>
+      <div className='flex ml-[70px] w-[275px]'>
         <img src={boxrpg} alt='boxrpg' className='rounded scale-90' />
       </div>
     </div>
