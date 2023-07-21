@@ -4,12 +4,22 @@ import { GiBookCover } from 'react-icons/gi';
 import { MdLoupe } from 'react-icons/md';
 import { GrUpdate } from 'react-icons/gr';
 import { BiPlus } from 'react-icons/bi';
+import { AiFillCloseCircle } from 'react-icons/ai';
 import RPGService from '../../services/RPGService';
 import SupportButton from '../Button/SupportButton';
 import GenreButton from '../Button/GenreButton';
+import './FixListRPG.css';
 
 export default function ListRPG() {
   const [dataRPG, setDataRPG] = useState([]);
+  const [showImage, setShowImage] = useState(false);
+  const [idCover, setIdCover] = useState([]);
+
+  const toggleImage = (box) => {
+    setIdCover(box);
+    setShowImage(!showImage);
+  };
+
   useEffect(() => {
     RPGService.getRPGname()
       .then((response) => {
@@ -610,7 +620,15 @@ export default function ListRPG() {
     }
   };
 
-  const HandleUpdate = (id, name, support, genre, developer, imagerpg) => {
+  const HandleUpdate = (
+    id,
+    name,
+    support,
+    genre,
+    developer,
+    imagerpg,
+    boxrpg
+  ) => {
     navigate(`/updaterpg/${id}`, {
       state: {
         name: name,
@@ -618,11 +636,20 @@ export default function ListRPG() {
         genre: genre,
         developer: developer,
         imagerpg: imagerpg,
+        boxrpg: boxrpg,
       },
     });
   };
 
-  const HandleDetails = (id, name, support, genre, developer, imagerpg) => {
+  const HandleDetails = (
+    id,
+    name,
+    support,
+    genre,
+    developer,
+    imagerpg,
+    boxrpg
+  ) => {
     navigate(`/detailsrpg/${id}`, {
       state: {
         name: name,
@@ -630,6 +657,7 @@ export default function ListRPG() {
         genre: genre,
         developer: developer,
         imagerpg: imagerpg,
+        boxrpg: boxrpg,
       },
     });
   };
@@ -818,7 +846,8 @@ export default function ListRPG() {
                         rpg.support,
                         rpg.genre,
                         rpg.developer,
-                        rpg.imagerpg
+                        rpg.imagerpg,
+                        rpg.boxrpg
                       )
                     }
                   >
@@ -836,7 +865,8 @@ export default function ListRPG() {
                         rpg.support,
                         rpg.genre,
                         rpg.developer,
-                        rpg.imagerpg
+                        rpg.imagerpg,
+                        rpg.boxrpg
                       )
                     }
                   >
@@ -845,10 +875,33 @@ export default function ListRPG() {
                   </button>
                 </td>
                 <td className='p-4  bg-gray-800 border border-solid border-gray-800 rounded-r-xl'>
-                  <button className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'>
+                  <button
+                    className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'
+                    onClick={() => {
+                      toggleImage(rpg.boxrpg);
+                    }}
+                  >
                     <GiBookCover className='mt-1 mr-1' />
                     Cover
                   </button>
+                  {showImage && (
+                    <div className='fixopacity fixed top-0 left-0 w-full flex items-center justify-center mt-4'>
+                      {rpg.boxrpg && (
+                        <div className='flex bg-transparent'>
+                          <img src={idCover} alt='coverrpg' />
+                          <button
+                            className='h-10 bg-white text-gray-800 font-bold py-2 px-4 rounded flex ml-2'
+                            onClick={() => {
+                              setShowImage(!showImage);
+                            }}
+                          >
+                            <AiFillCloseCircle className='mt-1 mr-1' />
+                            Close
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
