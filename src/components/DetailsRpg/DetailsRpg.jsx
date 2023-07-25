@@ -232,7 +232,7 @@ export default function DetailsRPG() {
             alt='imagerpg'
             className='w-16 h-16 rounded mr-2'
           />
-          <span className='mt-1'>{name}</span>
+          <span className='mt-1 texte-limite truncate w-[352px]'>{name}</span>
         </h3>
         <fieldset className='border border-solid border-white w-[412px] ml-4 mt-4 pl-4 pt-2 pb-4'>
           <legend align='center' className='text-xl ml-[-90px]'>

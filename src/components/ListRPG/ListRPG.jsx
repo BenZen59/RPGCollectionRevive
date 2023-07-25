@@ -5,9 +5,11 @@ import { MdLoupe } from 'react-icons/md';
 import { GrUpdate } from 'react-icons/gr';
 import { BiPlus } from 'react-icons/bi';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { RiDeleteBin5Fill } from 'react-icons/ri';
 import RPGService from '../../services/RPGService';
 import SupportButton from '../Button/SupportButton';
 import GenreButton from '../Button/GenreButton';
+import axios from 'axios';
 import './FixListRPG.css';
 
 export default function ListRPG() {
@@ -662,6 +664,27 @@ export default function ListRPG() {
     });
   };
 
+  const handleDelete = (id) => {
+    try {
+      const response = axios.delete(
+        `http://localhost:8080/api/v1/rpg/${id}`,
+        dataRPG,
+
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log(response.data);
+      window.location.reload();
+      // Faites quelque chose avec la réponse si nécessaire
+    } catch (error) {
+      console.error(error);
+      // Gérez l'erreur si nécessaire
+    }
+  };
+
   return (
     <>
       <div className='flex flex-col items-center mt-8'>
@@ -769,7 +792,7 @@ export default function ListRPG() {
           </button>
         </div>
       </div>
-      <div className='ml-[14%] font-candara'>
+      <div className='ml-[10%] font-candara'>
         <Link
           to='/addrpg'
           className='bg-gray-800 text-white font-bold py-2 px-4 rounded ml-4 flex w-[160px]'
@@ -777,10 +800,10 @@ export default function ListRPG() {
           <BiPlus className='mt-1 mr-1' />
           Ajouter un RPG
         </Link>
-        <h1 className='font-bold text-2xl mb-4 ml-[36%] text-gray-800'>
+        <h1 className='font-bold text-2xl mb-4 ml-[40%] text-gray-800'>
           Liste des RPG
         </h1>
-        <table className='ml-4 mt-1 mb-8 bg-white border-separate border-spacing-y-4  border border-white text-white'>
+        <table className='ml-[10%] mt-1 mb-8 bg-white border-separate border-spacing-y-4  border border-white text-white'>
           <thead className='mb-3'>
             <tr className='text-xl'>
               <th className=' border-t border-l border-white border-solid bg-white'></th>
@@ -872,6 +895,15 @@ export default function ListRPG() {
                   >
                     <GrUpdate className='mt-1 mr-1' />
                     Update
+                  </button>
+                </td>
+                <td className='p-4  bg-gray-800 border border-solid border-gray-800 '>
+                  <button
+                    className='bg-white text-gray-800 font-bold py-2 px-4 rounded flex'
+                    onClick={() => handleDelete(rpg.id)}
+                  >
+                    <RiDeleteBin5Fill className='mt-1 mr-1' />
+                    Delete
                   </button>
                 </td>
                 <td className='p-4  bg-gray-800 border border-solid border-gray-800 rounded-r-xl'>

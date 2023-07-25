@@ -195,7 +195,7 @@ export default function AddRpg() {
   return (
     <div className='w-[412px] h-[870px] font-candara rounded-xl mt-5 mb-5 ml-[40%] bg-gray-800 text-white pt-1'>
       <h3 className='text-4xl text-center mt-6 '>Ajouter un RPG à la BDD</h3>
-      <div className='flex ml-24'>
+      <div className='flex ml-28'>
         <form onSubmit={handleSubmit}>
           <div className=''>
             <br />
